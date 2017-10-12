@@ -1,6 +1,8 @@
 var URL = "http://lschallengesp2.azurewebsites.net/api/";
 var topicList = [];//["Entertainment","Sport","Shopping","Technology","Business"];
 var topicIds = [];
+var users = [];
+var userIdList = [];
 
 function postRecord() {
     console.log(topicList);
@@ -41,14 +43,32 @@ function postRecord() {
 }
 
 function getRecord() {
-	document.getElementById("result").innerHTML = '';
+	document.getElementById("result").innerHTML = "Loading users...";
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+            users = [];
+            userIdList = [];
             var response = JSON.parse(this.responseText);
-            for (var i = 0; i < response.length; i++) {
-                var current = response[i]; 
-                document.getElementById("result").innerHTML += current.firstName + " " + current.lastName + " | " + current.email + "<br> ";
+            if (response.length == 0) {
+                document.getElementById("result").innerHTML = "No users found!";
+            } else {
+                for (var i = 0; i < response.length; i++) {
+                    var user = response[i]; 
+                    if (!userIdList.includes(user.id)) {
+
+                        // put the current user into the users array if they are not already there
+                        users.push({firstName:user.firstName, lastName:user.lastName, email:user.email, topics:[user.topicName]});
+                        userIdList.push(user.id);
+
+                    } else {
+
+                        // if the user exists in the users array, add the new topic to the existing record
+                        users[userIdList.indexOf(user.id)].topics.push(user.topicName);
+
+                    }      
+                }
+                displayUsers();
             }
         }
     };
@@ -73,6 +93,21 @@ function getTopics() {
     xhttp.send();
 }
 
+function postTopic() {
+    var newTopic = document.getElementById("newTopic").value;
+    if (!topicList.includes(newTopic)) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //getRecord();
+            }
+        };
+        xhttp.open("POST", URL + "getTopics" + "?topic=" + newTopic, true);
+        xhttp.send();
+    } else {
+        alert("That topic already exists!");
+    }
+}
 function generateTopicList() {
     for (var i = 0, j = topicList.length; i < j; i++) {
         var topic = topicList[i];
@@ -93,5 +128,15 @@ function generateTopicList() {
         label.appendChild(br);
 
         document.getElementById('checkboxDiv').appendChild(label);
+    }
+}
+
+function displayUsers() {
+    document.getElementById("result").innerHTML = '';
+    for (var i = 0, j = users.length; i < j; i++) {
+
+        user = users[i];
+        document.getElementById("result").innerHTML += user.firstName + " " + user.lastName + " - " + user.email + " - Topics: " + user.topics.join(', ') + "<br> ";
+
     }
 }

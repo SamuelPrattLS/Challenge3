@@ -6,7 +6,7 @@
         <script src="mailingScript.js"></script>
         
     </head>
-    <body onload="getTopics()">
+    <body onload="getTopics(), getRecord()">
         <h2>Enter your name here to be added to our database.</h2>
         <input type="text" id="firstName" placeholder="Enter your first name"></input>
             <br>
@@ -25,6 +25,6 @@
         <button onclick="postRecord()">Subscribe</button>
         <button onclick="getRecord()">Get</button>
         <!--<button onclick="generateTopics()">Generate</button>-->
-        <p id="result"></p>
+        <p id="result">Loading users...</p>
     </body>
 </html>
