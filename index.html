@@ -3,21 +3,28 @@
     <head> 
         <title>Sign up to our mailing list!</title>
         <link rel="stylesheet" href="style.css"></link>
-        <script src="golfedScript.js"></script>
-        <
+        <script src="mailingScript.js"></script>
+        
     </head>
-    <body>
+    <body onload="getTopics()">
         <h2>Enter your name here to be added to our database.</h2>
+        <input type="text" id="firstName" placeholder="Enter your first name"></input>
+            <br>
+            <br>
+        <input type="text" id="lastName" placeholder="Enter your last name"></input>
+            <br>
+            <br>
+        <input type="email" id="email" placeholder="Enter your email address"></input>
+            <br>
+            <br>
 
-        <input type="text" id="inputBox" placeholder="Enter your name"></input>
-        <br>
-        <!-- <button onclick="calculate()">Calculate</button>
-        <button onclick="clearInput()">Clear</button> -->
-        <button onclick="postRecord()">Post</button>
+        <div id = "checkboxDiv">
+            <!--Checkboxes will be inserted here-->
+        </div> 
+            <br>
+        <button onclick="postRecord()">Subscribe</button>
         <button onclick="getRecord()">Get</button>
-        <br>
-        <button onclick="postToAlt('http://ls1.azurewebsites.net/api/getCustomers')">Post alt</button>
-        <button onclick="getFromAlt('http://ls1.azurewebsites.net/api/getCustomers')">Get alt</button>
+        <!--<button onclick="generateTopics()">Generate</button>-->
         <p id="result"></p>
     </body>
 </html>
