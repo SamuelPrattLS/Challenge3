@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <title>Sign up to our mailing list!</title>
+        <title>Subscribe</title>
         <link rel="stylesheet" href="style.css"></link>
+        <link rel="stylesheet" href = "https://fonts.googleapis.com/css?family=Aclonica">
         <script src="mailingScript.js"></script>
-        
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     </head>
-    <body onload="getTopics(true), getRecord()">
-        <h2>Enter your name here to be added to our database.</h2>
-        <input type="text" id="firstName" placeholder="Enter your first name"></input>
-            <br>
-            <br>
-        <input type="text" id="lastName" placeholder="Enter your last name"></input>
-            <br>
-            <br>
-        <input type="email" id="email" placeholder="Enter your email address"></input>
-            <br>
-            <br>
-        <div style="text-align: center;">
-            <div id="topicDiv" style="display: inline-block; text-align: left;" >
-                <!--Checkboxes will be inserted here-->
-            </div> 
-        </div>
-            <br>
-        <button onclick="postRecord()">Subscribe</button>
-        <button onclick="getRecord()">Get</button>
-        <!--<button onclick="generateTopics()">Generate</button>-->
-        <p id="result">Loading users...</p>
+    <body onload="getTopics(true),getRecord()">
+    <button id = "login" onclick = "loginPage()" style="float:right">Admin Login</button>
+
+    <div class = "wrapper">
+        <br>
+        <h1>Auckland 20s & 30s Social Group</h1>
+        <h2>Register below and we'll contact you if there's an event that might interest you!</h2>
+        <a id = "link" href="https://www.meetup.com/Auckland20s30sSocialGroup/">Click here  to see more information about our group</a>
+        <br><br>
+        <img id = "front-page" src="https://farm1.nzstatic.com/_proxy/imageproxy_1y/serve/la-zeppa.jpg?focalpointx=50&focalpointy=50&height=440&outputformat=jpg&quality=75&source=2800369&transformationsystem=focalpointcrop&width=1280&securitytoken=44021829EA6E7A2C917B53EDFE346232">
+        <br><br>
+            <br><br>
+            <input type="text" id="firstName" placeholder="First Name" ;></input>
+            <br><br>
+            <input type="text" id="lastName" placeholder="Last Name"></input>
+            <br><br>
+            <input type="email" id="email" placeholder="Email Address"></input>
+            <br><br>
+
+            <div style="text-align: center;">
+                <p>Topics:</p>
+                <div id="topicDiv" style="display: inline-block; text-align: left;" >
+                    <!--Checkboxes will be inserted here-->
+                </div> 
+            </div>
+
+            <br><br>
+
+            <button id = "post" onclick = "postRecord()">Subscribe</button>
+            <br><br>
+    </div>
+    <a id = "unsubscribeButton" href="Unsubscribe.html" style="float:center">Unsubscribe</a>
+
     </body>
 </html>

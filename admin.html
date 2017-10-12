@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <title>Sign up to our mailing list!</title>
+        <title>Admin Portal</title>
         <link rel="stylesheet" href="style.css"></link>
         <script src="mailingScript.js"></script>
         
     </head>
-    <body onload="getTopics(false), getRecord()">
-        <h2>Admin page</h2>
-        
-		<div style="text-align: center;">
-			<p>Topics:</p>
-            <div id="topicDiv" style="display: inline-block; text-align: left;" >
+    <body onload="getTopics(true), getRecord()">
+        <div class = "wrapper" id = "adminBox">
+            <h2>Below are the current topics and all the subscribers</h2>
+            
+    		<div style="text-align: center;">
+    			<p>Topics:</p>
+                <div id="topicDiv" style="display: inline-block; text-align: left;" >
+                    <!--Checkboxes will be inserted here-->
+                </div> 
+            </div>
+            <br>
+            <input type="text" id="newTopic" placeholder="Add a new topic"></input>
+                <br>
+                <br>
+            <button onclick="postTopic()">Add topic</button>
+            <button onclick="displayUsers()">Update</button>
+            <p>Topics:</p>
+            <table id="usersDiv">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th> 
+                    <th>Interests</th>
+                </tr>
                 <!--Checkboxes will be inserted here-->
-            </div> 
+
+            </table> 
         </div>
-        <br>
-        <input type="text" id="newTopic" placeholder="Add a new topic"></input>
-            <br>
-            <br>
-        <button onclick="postTopic()">Add topic</button>
-        <!--<button onclick="generateTopics()">Generate</button>-->
-        <p id="result">Loading users...</p>
     </body>
 </html>

@@ -1,7 +1,210 @@
-h2 { font-size: 36px; color: white;}
-p { font-size: 18px; color: white;} 
-body {
-	background-color: rgb(10,10,10);
-	text-align: center;
-	color: white;
+body{
+    font-family: Aclonica;
+    background: url("https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2015/04/colortheory.jpg") no-repeat center center fixed; 
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+h1 {
+    color:white;
+    text-align: center;
+    font-size: 60px;
+    top: 300px;
+}
+h4{
+    color:white;
+    text-align: center;
+	font-size: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+    line-height: 20px;
+}
+
+#cat{
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+#front-page{
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+#adminBox{
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+h2 { color: white; font-style: bold;	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	font-size: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+    line-height: 20px;
+    font-weight:bold;
+    line-height:30px;
+}
+    
+
+#unsubscribeButton{
+    font-size :12px;
+    color: rgb(38, 13, 148);
+    font-family: arial;
+    font-weight: bold;
+}
+
+
+button {
+    color:white;
+    background-color: #4CAF50;
+    padding: 10px 24px;
+    text-align: center;
+    display: inline-block;
+    width: 150px;
+    font-size: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+button:hover {
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+    background-color: white; /* Green */
+    color: #4CAF50;
+    border:3px solid #4CAF50;
+
+}
+
+#login {
+    color:white;
+    background-color: rgb(14, 88, 158);
+    padding: 10px 24px;
+    text-align: center;
+    display: inline-block;
+    width: 150px;
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+#login:hover {
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+    background-color: white; /* Green */
+    color: rgb(14, 88, 158);
+    border:3px solid rgb(14, 88, 158);;
+
+}
+
+
+form { padding-bottom: 20px;
+}
+
+
+.wrapper {
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+input[type="text"]{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    width: 20%;
+    height: 5%;
+    text-align: center;
+}
+input::placeholder {
+    color: grey;
+    border-color: grey;
+    text-align: center;
+
+}
+input[type="email"]{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    width: 20%;
+    height: 5%;
+    text-align: center;
+}
+input[type="email"]::placeholder {
+    color: grey;
+    border-color: grey;
+    text-align: center;
+
+}
+
+input[type="password"]{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    width: 20%;
+    height: 5%;
+    text-align: center;
+}
+input[type="password"]::placeholder {
+    color: grey;
+    border-color: grey;
+    text-align: center;
+
+}
+#email{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    width: 20%;
+    height: 5%;
+    text-align: center;
+}
+#email::placeholder {
+    color: grey;
+    border-color: grey;
+    text-align: center;
+
+}
+
+#result {
+    color:white;
+}
+
+#error{
+    color: #570404;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#topicDiv{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#link{
+    color: white;
+}
+#topics{
+    color: white;
 }
