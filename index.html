@@ -6,7 +6,7 @@
         <script src="mailingScript.js"></script>
         
     </head>
-    <body onload="getTopics(), getRecord()">
+    <body onload="getTopics(true), getRecord()">
         <h2>Enter your name here to be added to our database.</h2>
         <input type="text" id="firstName" placeholder="Enter your first name"></input>
             <br>
@@ -17,10 +17,11 @@
         <input type="email" id="email" placeholder="Enter your email address"></input>
             <br>
             <br>
-
-        <div id = "checkboxDiv">
-            <!--Checkboxes will be inserted here-->
-        </div> 
+        <div style="text-align: center;">
+            <div id="topicDiv" style="display: inline-block; text-align: left;" >
+                <!--Checkboxes will be inserted here-->
+            </div> 
+        </div>
             <br>
         <button onclick="postRecord()">Subscribe</button>
         <button onclick="getRecord()">Get</button>

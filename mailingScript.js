@@ -34,9 +34,9 @@ function postRecord() {
         xhttp.send();
 
         // reset fields
-        //document.getElementById("firstName").value = '';
-        //document.getElementById("lastName").value = '';
-        //document.getElementById("email").value = '';
+        document.getElementById("firstName").value = '';
+        document.getElementById("lastName").value = '';
+        document.getElementById("email").value = '';
     } else {
         alert("Make sure you have filled in all fields and selected at least one topic.");
     }
@@ -76,7 +76,7 @@ function getRecord() {
     xhttp.send();
 }
 
-function getTopics() {
+function getTopics(checkboxes) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -86,7 +86,7 @@ function getTopics() {
                 topicList[i] = current.topicName;
                 topicIds[i] = current.id;
             }
-            generateTopicList();
+            generateTopicList(checkboxes);
         }
     };
     xhttp.open("GET", URL + "getTopics", true);
@@ -99,7 +99,7 @@ function postTopic() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                //getRecord();
+                getTopics(false);
             }
         };
         xhttp.open("POST", URL + "getTopics" + "?topic=" + newTopic, true);
@@ -108,26 +108,30 @@ function postTopic() {
         alert("That topic already exists!");
     }
 }
-function generateTopicList() {
+function generateTopicList(checkboxes) {
+    document.getElementById('topicDiv').innerHTML = '';
     for (var i = 0, j = topicList.length; i < j; i++) {
         var topic = topicList[i];
         var topicId = topicIds[i];
         var label = document.createElement("label");
-        var checkbox = document.createElement("input");
         var description = document.createTextNode(topic);
         var br = document.createElement("br");
 
-        checkbox.type = "checkbox";
-        checkbox.name = "topicBox" + i;
-        checkbox.id = "topicBox" + i;
-        checkbox.value = topicId;
-        
+        if (checkboxes) {
+            var checkbox = document.createElement("input");
 
-        label.appendChild(checkbox);   // add the box to the element
+            checkbox.type = "checkbox";
+            checkbox.name = "topicBox" + i;
+            checkbox.id = "topicBox" + i;
+            checkbox.value = topicId;
+
+            label.appendChild(checkbox);   // add the box to the element
+        }
+
         label.appendChild(description);
         label.appendChild(br);
 
-        document.getElementById('checkboxDiv').appendChild(label);
+        document.getElementById('topicDiv').appendChild(label);
     }
 }
 
