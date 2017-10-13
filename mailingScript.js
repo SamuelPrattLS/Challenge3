@@ -8,7 +8,7 @@ function postRecord() {
     console.log(topicList);
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
-    var email = document.getElementById("email").value;
+    var email = document.getElementById("email").value.toLowerCase();
     var topics = [];
     for (var i = 0; i < topicList.length; i++) {
         var checkbox = document.getElementById("topicBox" + i)
@@ -203,17 +203,15 @@ function login() {
 }
 
 function unsubscribe(){
-    window.location.href = "removed.html";
-    var email = document.getElementById("email").value;
+    var email = document.getElementById("email").value.toLowerCase();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            window.location.href = "login.html";
+            window.location.href = "removed.html";
         }
     };
-    xhttp.open("DELETE", `${UNSUBSCRIBE_URL}?email=${email}`, true);
+    xhttp.open("DELETE", URL + "getUsers" + "?email=" + email, true);
     xhttp.send();
-    
 
 //It would be good to add in something that checks whether the name exists first before deleting. So a GET to check if the value exists, and an error if it doesn't. 
 
